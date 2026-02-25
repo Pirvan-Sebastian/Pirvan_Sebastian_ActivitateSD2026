@@ -18,5 +18,8 @@
     <ClCompile Include="Pirvan_Sebastian_ActivitateSD2026.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="seminar2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
