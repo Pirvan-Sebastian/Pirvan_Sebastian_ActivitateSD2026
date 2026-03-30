@@ -158,9 +158,47 @@ float calculeazaPretMediu(ListaDubla listadubla) {
 	return suma/nr;
 }
 
-void stergeMasinaDupaID(/*lista masini*/ int id) {
+void stergeMasinaDupaID(ListaDubla *listadubla, int id) {
 	//sterge masina cu id-ul primit.
 	//tratati situatia ca masina se afla si pe prima pozitie, si pe ultima pozitie
+
+	if (listadubla->prim->info.id == id && listadubla->prim) {
+		free(listadubla->prim->info.model);
+		free(listadubla->prim->info.numeSofer);
+		listadubla->prim = listadubla->prim->next;
+
+		if (listadubla->prim) {
+			free(listadubla->prim->prev);
+		}
+		else {
+			free(listadubla->ultim);
+			listadubla->ultim = NULL;
+		}
+		return;
+	}
+	Nod* p = listadubla->prim;
+	while (p && p->info.id != id)
+	{
+		p = p->next;
+
+	}
+	if (p) {
+		if (p->prev) {
+			p->prev->next = p->next;
+		}
+		if (p->next) {
+			p->next->prev = p->prev;
+		}
+		else {
+			p->prev->next = NULL;
+			listadubla->ultim = p->prev;
+		}
+		free(p->info.model);
+		free(p->info.numeSofer);
+		free(p);
+
+
+	}
 }
 
 char* getNumeSoferMasinaScumpa(ListaDubla listadubla) {
@@ -188,6 +226,9 @@ int main() {
 	afisareListaMasini(lista);
 	printf("Numele soferului cu cea mai scumpa masina %s\n", getNumeSoferMasinaScumpa(lista));
 	printf("Medie: %f\n", calculeazaPretMediu(lista));
+
+	stergeMasinaDupaID(&lista, 1);
+	afisareListaMasini(lista);
 	
 	return 0;
 }
