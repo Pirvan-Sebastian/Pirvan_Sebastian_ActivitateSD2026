@@ -121,6 +121,7 @@ Heap citireHeapDeMasiniDinFisier(const char* numeFisier) {
 		heap.masini[heap.nrMasini] = masina;
 		heap.nrMasini++;
 		//nrMasini = contor;
+		fclose(f);
 	}
 	for (int i = (heap.nrMasini - 2 / 2); i >= 0; i--)
 	{
