@@ -62,7 +62,7 @@ void adaugaMasinaInArbore(Nod** radacina, Masina masinaNoua) {
 	//adauga o noua masina pe care o primim ca parametru in arbore,
 	//astfel incat sa respecte princiippile de arbore binar de cautare
 	//dupa o anumita cheie pe care o decideti - poate fi ID
-	
+
 	if((*radacina) == NULL) {
 		Nod* nodNou = (Nod*)malloc(sizeof(Nod));
 		nodNou->info = masinaNoua;
