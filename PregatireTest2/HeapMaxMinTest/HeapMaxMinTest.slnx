@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="HeapMaxMinTest.vcxproj" Id="b7018b6d-a16d-4021-b533-1aeaa1589b1d" />
+</Solution>
