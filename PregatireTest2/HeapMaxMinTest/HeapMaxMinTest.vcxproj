@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HeapMaxMinTest.c" />
+    <ClCompile Include="B2_G1057_PIRVAN_SEBSTIAN.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="masini_arbore.txt" />

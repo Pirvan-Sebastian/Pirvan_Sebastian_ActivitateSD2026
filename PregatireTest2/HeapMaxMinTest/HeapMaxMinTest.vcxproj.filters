@@ -18,6 +18,9 @@
     <ClCompile Include="HeapMaxMinTest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="B2_G1057_PIRVAN_SEBSTIAN.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="masini_arbore.txt" />

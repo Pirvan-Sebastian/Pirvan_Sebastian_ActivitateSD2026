@@ -30,17 +30,24 @@ Masina citireMasinaDinFisier(FILE* file) { // de repetat si asta sa nu uit
 	char* aux;
 	Masina m1;
 	aux = strtok(buffer, sep);
+
+	//int
 	m1.id = atoi(aux);
 	m1.nrUsi = atoi(strtok(NULL, sep));
+
+	//float
 	m1.pret = atof(strtok(NULL, sep));
+
+	//string
 	aux = strtok(NULL, sep);
 	m1.model = malloc(strlen(aux) + 1);
-	strcpy_s(m1.model, strlen(aux) + 1, aux);
+	strcpy(m1.model, aux);
 
 	aux = strtok(NULL, sep);
 	m1.numeSofer = malloc(strlen(aux) + 1);
-	strcpy_s(m1.numeSofer, strlen(aux) + 1, aux);
+	strcpy(m1.numeSofer, aux);
 
+	//1 caracter
 	m1.serie = *strtok(NULL, sep);
 	return m1;
 }
@@ -55,8 +62,8 @@ void afisareMasina(Masina masina) { //de repetat
 }
 
 Heap initializareHeap(int lungimeInitializare) {
-	//la initializare eclar un nou Heap
-	// atribui ceva ficarui camp din struct
+	//la initializare declar un nou Heap
+	// atribui ceva ficarui camp din struct heap
 	//aloc spatiu pentru vectorMasini ca sa am unde pune datele mai tarziu
 	//si sa pointeze undeva heap;
 	Heap heapNou;
@@ -107,7 +114,7 @@ Heap citireHeapMasiniDinFisier(const char* numeFisier) {
 	}
 	fclose(file);
 
-	for (int i = (heap.nrMasini - 2) / 2; i >= 0; i--) 
+	for (int i = (heap.nrMasini - 2) / 2; i >= 0; i--)       
 	{
 		filtreazaHeap(heap, i);
 	}
