@@ -17,6 +17,7 @@ struct StructuraMasina { //de repetat
 typedef struct StructuraMasina Masina;
 typedef struct Heap Heap;
 
+
 struct Heap {
 	int lungime;//cate spatii goale sunt in vector (sau elemente ascunse)
 	int nrMasini;//cate masini am eu in vector
@@ -24,20 +25,19 @@ struct Heap {
 };
 
 Masina citireMasinaDinFisier(FILE* file) { // de repetat si asta sa nu uit
+
 	char buffer[100];
 	char sep[3] = ",\n";
 	fgets(buffer, 100, file);
 	char* aux;
 	Masina m1;
-	aux = strtok(buffer, sep);
 
+	aux = strtok(buffer, sep);
 	//int
 	m1.id = atoi(aux);
 	m1.nrUsi = atoi(strtok(NULL, sep));
-
 	//float
 	m1.pret = atof(strtok(NULL, sep));
-
 	//string
 	aux = strtok(NULL, sep);
 	m1.model = malloc(strlen(aux) + 1);
@@ -46,7 +46,6 @@ Masina citireMasinaDinFisier(FILE* file) { // de repetat si asta sa nu uit
 	aux = strtok(NULL, sep);
 	m1.numeSofer = malloc(strlen(aux) + 1);
 	strcpy(m1.numeSofer, aux);
-
 	//1 caracter
 	m1.serie = *strtok(NULL, sep);
 	return m1;
