@@ -55,7 +55,7 @@ Nod* inserareaAvionInArbore(Nod* arbore, Avion avionNou) {
 		{
 			arbore->NodDreapta = inserareaAvionInArbore(arbore->NodDreapta, avionNou);
 		}
-		return arbore;
+		return arbore;//intorc radacina subtree ului verificat acum(posibil modificat)
 	}
 	else
 	{
@@ -64,10 +64,12 @@ Nod* inserareaAvionInArbore(Nod* arbore, Avion avionNou) {
 		nodNou->NodDreapta = NULL;
 		nodNou->Nodstanga = NULL;
 
-		nodNou->info = avionNou;
-		nodNou->info.model = (char*)malloc(strlen(avionNou.model)+1);
-		strcpy(nodNou->info.model, avionNou.model);
+		nodNou->info = avionNou;//shallow copy
+
 		//puteam face si shallow copy era okay ca se foloseste memoria de la malloc cu Nod in ocntinuare in nodul arborelui
+		//nodNou->info.model = (char*)malloc(strlen(avionNou.model)+1);
+		//strcpy(nodNou->info.model, avionNou.model);//deep copy
+		
 
 		return nodNou;
 
@@ -85,6 +87,7 @@ Nod* citireArboreDinFisier(const char* numeFisier) {
 
 	return arbore;
 }
+
 void afisareArbore(Nod* arbore) 
 {
 	if (arbore != NULL) 
